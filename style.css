@@ -1,0 +1,279 @@
+
+/* พื้นฐานการตั้งค่าสำหรับตัวอักษรและพื้นหลัง */
+body {
+    font-family: sans-serif;
+    background-image: url('https://i.pinimg.com/736x/60/45/b2/6045b20b691812aa54a1bfcdf3499331.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    color: #fff;
+  }
+  
+  /* กล่องล็อกอินและสมัครสมาชิก */
+  .login-container, .signup-container {
+    background-color: rgba(255, 134, 225, 0.7);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 300px;
+  }
+  
+  .login-container h2, .signup-container h2 {
+    margin-bottom: 20px;
+    color: #fff;
+  }
+  
+  .login-container input[type="text"],
+  .login-container input[type="password"],
+  .signup-container input[type="text"],
+  .signup-container input[type="password"] {
+    width: 93%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .login-container button, .signup-container button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #db34cd;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .login-container button:hover, .signup-container button:hover {
+    background-color: #ff97ff;
+  }
+  
+  .signup-link {
+    color: #fff;
+    text-decoration: none;
+    margin-top: 10px;
+    display: block;
+    font-size: 0.9em;
+  }
+  
+  /* หน้าแสดงภาพ */
+  #mainContent {
+    display: none;
+    text-align: center;
+  }
+  
+  /* รูปภาพในลักษณะการเลือกไพ่ */
+  .card {
+    width: 300px;
+    height: 400px;
+    margin: 10px;
+    background-color: rgba(255, 242, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    display: inline-block;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+  }
+  
+  /* สีเมื่อเมาส์ชี้ */
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+    background-color: rgba(252, 122, 252, 0.8);
+  }
+  
+  .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  
+  .card.flipped img {
+    opacity: 1;
+  }
+  
+  /* ตั้งค่าปุ่มการ์ดให้ไม่สามารถคลิกได้จนกว่าจะเริ่มเกม */
+  .card.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+  
+  /* ปุ่มสับไพ่ */
+  button#shuffleButton {
+    padding: 20px 30px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #e622bc;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button#shuffleButton:hover {
+    background-color: #e475c8;
+  }
+  
+  /* การแสดงภาพขนาดใหญ่ */
+  .lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .lightbox img {
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 10px;
+    transform: scale(0);
+    transition: transform 0.5s ease;
+  }
+  
+  .lightbox.show img {
+    transform: scale(1);
+  }
+  
+  .lightbox .description {
+    color: #fff;
+    font-size: 1.2em;
+    margin-top: 20px;
+    text-align: center;
+  }
+   /*หน้ายินดีต้อนรับ*/
+  .menu-container {
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+
+    text-align: center; 
+  }
+  /* เปลี่ยนสีตัวอักษรใน ยินดีต้อนรับ*/
+  .menu-container h1 {
+    color: #000000; 
+    font-family: 'Arial', sans-serif;
+    font-size: 24px;
+  }
+  
+  .menu-container button {
+    padding: 15px 30px; /* เพิ่มขนาดของปุ่ม */
+    font-size: 1.5em; /* ปรับขนาดข้อความให้ใหญ่ขึ้น */
+    color: #fff;
+    background-color: #db34cd;
+    border: none;
+    border-radius: 10px; /* ขอบมน */
+    cursor: pointer;
+    transition: background-color 0.10s ease;
+  }
+  
+  .menu-container button:hover {
+    background-color: #ff97ff; /* สีเมื่อเอาเมาส์ชี้ */
+  }
+  
+  .card.flipped {
+    transform: rotateY(180deg);
+  }
+  
+  /* หน้าประวัติ */
+  #historyContainer {
+    display: none;
+    background-color: rgba(255, 231, 248, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(235, 133, 221, 0.2);
+    position: fixed;
+    top: 20%;
+    left: 20%;
+    right: 20%;
+    z-index: 9999;
+    
+  }
+
+   /* สีหัวข้อในหน้าประวัติ */
+   #historyContainer h2 {
+    color: #000000; 
+    font-family: Arial, sans-serif; 
+    text-align: center; /* จัดกึ่งกลาง */
+  }
+    /* เปลี่ยนสีของรายการประวัติ */
+    #historyList div {
+        color: #000000; 
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #f8b1f2; /* ขอบ */
+    }
+    #historyContainer button:hover {
+        background-color: #ff98ff; 
+    }
+    /*เลื่อนดูรายการ*/
+    #historyList {
+        max-height: 200px;
+        overflow-y: auto;
+    }
+   /* เปลี่ยนสีปุ่มปิด */
+   #historyContainer button {
+    background-color: #db34cd; 
+    color: white; 
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+/* สีปุ่มประวัติ */
+.history-button {
+    background-color: #e622bc; 
+    color: white; 
+    border: none; 
+    padding: 20px 20px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 1em; 
+    transition: background-color 0.3s; 
+  }
+  
+  .history-button:hover {
+    background-color: #e475c8; /* สีเมื่อโฮเวอร์ */
+  }
+  
+  /* การสลับการ์ด */
+  @keyframes shuffleAnimation {
+    0% {
+      transform: rotateY(0deg);
+    }
+    25% {
+      transform: rotateY(90deg);
+    }
+    50% {
+      transform: rotateY(180deg);
+    }
+    75% {
+      transform: rotateY(270deg);
+    }
+    100% {
+      transform: rotateY(360deg);
+    }
+  }
+  
+  .card.shuffling {
+    animation: shuffleAnimation 0.8s ease-in-out;
+  }
+  
